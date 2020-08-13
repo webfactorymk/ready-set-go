@@ -6,5 +6,12 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/ngx-ready-set-go/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-ready-set-go/tsconfig.spec.json"
+    }
+]
 }
