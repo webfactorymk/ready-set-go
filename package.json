@@ -9,32 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/webfactorymk/ready-set-go"
-  },
-  "author": "webfactory",
-  "license": "BSD-2-Clause",
-  "keywords": [
-    "angular2",
-    "angular",
-    "angular4",
-    "angular5",
-    "angular6",
-    "angular7",
-    "angular8",
-    "angular9",
-    "indicator",
-    "status",
-    "loading",
-    "progress",
-    "angular10",
-    "progress indicator",
-    "rxjs",
-    "pipe",
-    "state indicator"
-  ],
-  "private": false,
+  "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.6",
     "@angular/common": "~10.0.6",
