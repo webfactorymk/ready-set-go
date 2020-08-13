@@ -1,6 +1,6 @@
 {
   "name": "ready-set-go",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +14,7 @@
     "url": "https://github.com/webfactorymk/ready-set-go"
   },
   "author": "webfactory",
-  "license": "BSD",
+  "license": "BSD-2-Clause",
   "keywords": [
     "angular2",
     "angular",
