@@ -1,24 +1,56 @@
-# NgxReadySetGo
+# ngx-ready-set-go
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
+This library will help you indicate (track) the progress of you requests. 
+When they are preparing, executing or if there is an error. 
 
-## Code scaffolding
+Its purpose is to be attached to any observable by providing IndicatorBehavioralSubject to it.
 
-Run `ng generate component component-name --project ngx-ready-set-go` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-ready-set-go`.
-> Note: Don't forget to add `--project ngx-ready-set-go` or else it will be added to the default project in your `angular.json` file. 
+## How to install
 
-## Build
+Add it to you project by executing the following:
 
-Run `ng build ngx-ready-set-go` to build the project. The build artifacts will be stored in the `dist/` directory.
+`npm i ngx-ready-set-go --save`
 
-## Publishing
+## Use it in action
 
-After building your library with `ng build ngx-ready-set-go`, go to the dist folder `cd dist/ngx-ready-set-go` and run `npm publish`.
+TS
 
-## Running unit tests
+```typescript
 
-Run `ng test ngx-ready-set-go` to execute the unit tests via [Karma](https://karma-runner.github.io).
+indicator: IndicatorBehaviorSubject = new IndicatorBehaviorSubject();
 
-## Further help
+this.readySetGoService.getUsersFromAPI()
+.pipe(indicate(this.indicator))
+.subscribe((res: any) => {
+  console.log(res);
+});
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+
+HTML
+
+```angular2html
+
+<div *ngIf="indicator | async as status">
+   <span>Loading: {{status.loading}}</span>
+   <span>Error: {{status.error}}</span>
+   <span>Loaded: {{status.loaded}}</span>
+</div>
+
+```
+
+## States
+
+It has 3 states for now:
+     ```error: false, loaded: false, loading: false```
+
+They are all false on init.
+
+- On prepare: ``loading becomes true, all others false``
+- On catchError: ``error becomes true, all others false``
+- On finalize: ``loaded becomes true, all others false``
+
+
+## Furture updates
+
+I would be happy to get your feedback and suggestions

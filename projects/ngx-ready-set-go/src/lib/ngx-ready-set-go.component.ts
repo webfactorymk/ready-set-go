@@ -21,7 +21,7 @@ export class NgxReadySetGoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.readySetGoService.testRequest().pipe(indicate(this.indicator)).subscribe((res: any) => {
+    this.readySetGoService.getUsersFromAPI().pipe(indicate(this.indicator)).subscribe((res: any) => {
       console.log(res);
     });
   }

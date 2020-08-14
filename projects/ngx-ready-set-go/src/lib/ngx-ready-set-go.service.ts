@@ -11,7 +11,7 @@ export class NgxReadySetGoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  testRequest(): Observable<any> {
+  getUsersFromAPI(): Observable<any> {
     return this.httpClient.get(`https://jsonplaceholder.typicode.com/todos/1`).pipe(map((response: any) => {
       return response;
     }));
