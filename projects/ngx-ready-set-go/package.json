@@ -1,6 +1,6 @@
 {
   "name": "ngx-ready-set-go",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "dependencies": {
     "tslib": "^2.0.0"
   },
