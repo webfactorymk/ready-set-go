@@ -1,5 +1,5 @@
-import {BehaviorSubject, defer, Observable, throwError} from 'rxjs';
-import {catchError, finalize} from 'rxjs/operators';
+import {BehaviorSubject, defer, Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 /**
  * Statuses for the indicator
@@ -46,12 +46,14 @@ export function indicate<T>(indicator: IndicatorBehaviorSubject): (source: Obser
     prepare(() => {
       indicator.next({error: false, loaded: false, loading: true});
     }),
-    finalize(() => {
-      indicator.next({error: false, loaded: true, loading: false});
-    }),
-    catchError((error: any) => {
-      indicator.next({error: true, loaded: false, loading: false});
-      return throwError(error);
+    tap({
+      next: (x) => {
+        indicator.next({error: false, loaded: false, loading: true});
+      },
+      error: (err) => {
+        indicator.next({error: true, loaded: false, loading: false});
+      },
+      complete: () => indicator.next({error: false, loaded: true, loading: false})
     })
   );
 }
